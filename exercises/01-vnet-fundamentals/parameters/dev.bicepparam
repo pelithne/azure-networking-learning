@@ -9,7 +9,7 @@ using '../main.bicep'
 
 // The Azure region to deploy to
 // TIP: Choose a region close to you for lower latency during testing
-param location = 'eastus2'
+param location = 'swedencentral'
 
 // Environment identifier - used in resource naming
 param environmentName = 'learn'

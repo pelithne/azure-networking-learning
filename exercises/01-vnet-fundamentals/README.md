@@ -126,7 +126,7 @@ chmod +x deploy.sh cleanup.sh
 ### Step 2: Explore the VNet in Azure Portal
 
 1. Navigate to the Resource Group `rg-learn-vnet-fundamentals`
-2. Open the Virtual Network `vnet-learning`
+2. Open the Virtual Network `vnet-learn`
 3. Explore:
    - **Address space** - Note how it's configured
    - **Subnets** - See the 4 subnets and their ranges
@@ -162,7 +162,7 @@ PUBLIC_IP=$(az vm show \
   --show-details \
   --query publicIps -o tsv)
 
-# SSH into the VM (password: LearnAzure123!)
+# SSH into the VM (use the password you provided during deployment)
 ssh azureuser@$PUBLIC_IP
 
 # Inside the VM, check the network configuration
@@ -186,13 +186,13 @@ exit
 # List all subnets with their address ranges
 az network vnet subnet list \
   --resource-group rg-learn-vnet-fundamentals \
-  --vnet-name vnet-learning \
+  --vnet-name vnet-learn \
   --output table
 
 # Get detailed subnet information including available IPs
 az network vnet subnet show \
   --resource-group rg-learn-vnet-fundamentals \
-  --vnet-name vnet-learning \
+  --vnet-name vnet-learn \
   --name snet-web \
   --query "{Name:name, AddressPrefix:addressPrefix, AvailableIPs:addressPrefixes}" \
   --output table
